@@ -26,6 +26,17 @@ function onGalleryClick(event){
     event.preventDefault()
     const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" alt="${event.target.description}"/>`)
     instance.show()
+    
+    if(instance.show()){
+      window.addEventListener("keydown", closeIns, {once: true})
+      function closeIns (event){
+        if(event.code === "Escape"){
+          instance.close()
+        }
+      }
+    }else{
+      window.removeEventListener("keydown", closeIns)
+    }
 }
 
 
