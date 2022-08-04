@@ -35,7 +35,7 @@ function onGalleryClick(event){
         }
         window.removeEventListener("keydown", closeIns)
       }
-    }    
+    } 
 }
 
 
