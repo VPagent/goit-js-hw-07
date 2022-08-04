@@ -7,9 +7,9 @@ const galleryContainer = document.querySelector(".gallery")
 let allPictures = ""
 
 galleryItems.forEach(obj  => {
-    allPictures += `<a class="gallery__item" href="${obj.original}">
+    allPictures += `<li><a class="gallery__item" href="${obj.original}">
     <img class="gallery__image" src="${obj.preview}" alt="${obj.description}" />
-  </a>`
+  </a></li>`
 })
 galleryContainer.innerHTML= allPictures
 
@@ -21,6 +21,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
 });
 
 
-console.log(lightbox)
+// console.log(lightbox)
 
-console.log(galleryItems);
+// console.log(galleryItems);
