@@ -28,15 +28,14 @@ function onGalleryClick(event){
     instance.show()
     
     if(instance.show()){
-      window.addEventListener("keydown", closeIns, {once: true})
+      window.addEventListener("keydown", closeIns)
       function closeIns (event){
         if(event.code === "Escape"){
           instance.close()
         }
+        window.removeEventListener("keydown", closeIns)
       }
-    }else{
-      window.removeEventListener("keydown", closeIns)
-    }
+    }    
 }
 
 
