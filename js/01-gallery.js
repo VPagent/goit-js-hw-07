@@ -23,19 +23,19 @@ galleryContainer.addEventListener("click", onGalleryClick)
 
 function onGalleryClick(event){
 
-    event.preventDefault()
-    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" alt="${event.target.description}"/>`)
-    instance.show()
+  event.preventDefault()
+    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" alt="${event.target.description}"/>`,{
+      onShow: () => {window.addEventListener("keydown", closeIns)},
+      onClose: () => {window.removeEventListener("keydown", closeIns)},
+    });
+  instance.show()
     
-    if(instance.show()){
-      window.addEventListener("keydown", closeIns)
-      function closeIns (event){
-        if(event.code === "Escape"){
-          instance.close()
-        }
-        window.removeEventListener("keydown", closeIns)
-      }
-    } 
+  
+  function closeIns (event){
+    if(event.code === "Escape"){
+      instance.close()
+    }
+  } 
 }
 
 
